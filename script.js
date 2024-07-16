@@ -137,7 +137,7 @@ overlay.addEventListener('click', passEventToParticles);
 
 // Rest of your script
 const birthDate = new Date('2010-05-18'); 
-const creationDate = new Date('2024-03-15'); 
+const creationDate = new Date('2024-7-16'); 
 let userName = "";
 
 while(userName === ""){
