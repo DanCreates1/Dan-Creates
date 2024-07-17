@@ -90,6 +90,11 @@ p {
     color: #ffffff;
   }
 
+#paragraph1 p{
+  word-spacing: 3px;
+  padding: 15px;
+}
+
   .skill{
     width: 500px;
     margin: 60px auto;
@@ -133,6 +138,12 @@ p {
   }
   .python{
     width: 70%;
+    animation: python 3s;
+    color: #0ef;
+  }
+
+  .javaScript{
+    width: 40%;
     animation: python 3s;
     color: #0ef;
   }
