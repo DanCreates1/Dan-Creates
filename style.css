@@ -137,7 +137,7 @@ p {
   .bar span{
     height: 20px;
     float: left;
-    background: linear-gradient(135deg, rgba(236, 0, 140,1)0%, rgba(252, 103, 103, 1.0)100%);
+    background: linear-gradient(135deg, rgb(172, 93, 93)0%, rgb(3, 24, 255)100%);
   }
   
   .html{
@@ -200,5 +200,10 @@ p {
     color: white;
     text-decoration: none;
     size: 40px;
+  }
+
+  #githubI{
+    margin: auto;
+    padding: auto;
   }
   
