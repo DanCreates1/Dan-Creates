@@ -1,23 +1,169 @@
+html{
+  scroll-behavior: smooth;
+  scroll-padding-top: 200px;
+}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
-* {
-    box-sizing: border-box;
+:root{
+  --color-1: #0f1016;
+  --text-color: #f0f0f0;
+  --accent-color: #006aff;
+
+
+  *{
     margin: 0;
     padding: 0;
-    
 }
 
+.logo{
+  width: 160px;
+}
+
+
+
+
 body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
     background-color: #000;
     color: white;
     font-family: Arial, sans-serif;
     height: 100vh;
     width: 100%;
-    overflow: hidden;
     overflow-y: scroll;
     overflow-x: hidden;
     min-width: 100vw;
     min-height: 100vh;
 }
+
+
+
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 1000;
+}
+
+
+nav .logo {
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+nav .nav-links {
+  display: flex;
+  list-style: none;
+}
+
+nav .nav-links li {
+  margin-left: 20px;
+}
+
+nav .nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.burger {
+  display: none;
+  cursor: pointer;
+}
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  margin: 5px;
+  transition: all 0.3s ease;
+}
+
+@media screen and (max-width: 500px) {
+  .nav-links {
+    position: fixed;
+    margin: 20px;
+    gap: 50px;
+    right: 0px;
+    height: 100%;
+    top: 0px;
+    background-color: var(--color-1);
+    box-shadow: -5px 0 5px rgb(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 300px; 
+    transform: translateX(100%);
+    transition:  1.0s ease-out;
+  }
+  nav a{
+    box-sizing: border-box;
+    height: auto;
+    width: 100%;
+    padding: 20px 30px;
+    justify-content: flex-start;
+    margin: 30px;
+  }
+
+  .nav-links li {
+    opacity: 0;
+  }
+
+  .burger {
+    display: block;
+  }
+
+  .nav-active {
+    transform: translateX(0);
+  }
+
+  .nav-active li {
+    opacity: 1;
+  }
+}
+
+#copyright{
+  text-align: center;
+  font-size: 15px;
+}
+
+/* Add this to animate the nav links */
+@keyframes navLinkFade {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Add this for burger animation */
+.burger.toggle .line1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.burger.toggle .line2 {
+  opacity: 0;
+}
+
+.burger.toggle .line3 {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+
+
 
 #bgJs {
     position: absolute;
@@ -48,6 +194,11 @@ body {
   z-index: 1;
 }
 
+#BGimg{
+  width: 200vh;
+  height: 60vh;
+}
+
 
 #overlay {
     position: absolute;
@@ -74,6 +225,15 @@ body {
     display: inline-block;
 }
 
+#h1f{
+  padding: 46px;
+}
+#wordAnimation{
+  font-size: 20px;
+  text-align: center;
+  margin: auto;
+}
+
 #h1f, #age, #timer {
     text-align: center;
     margin-top: 20px;
@@ -89,7 +249,7 @@ body {
 
 section{
     height: 100%;
-    min-height: 40vh;
+    min-height: 45vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -207,3 +367,16 @@ p {
     padding: auto;
   }
   
+
+  #icons{
+    text-align: center; 
+    
+  }
+
+
+
+
+#cotactMe{
+  height: 100%;
+  min-height: 46vh;
+}}
