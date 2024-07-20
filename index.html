@@ -3,18 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="them-color" content="#000000"/>
+    <meta name="theme-color" content="#000000"/>
+    <link rel="icon" type="image/jpg" href="electricity.png" />
     <title>Pouyan</title>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  
     <div id="bgJs"></div>
+
+    <nav>
+      <img src="logo.png" class="logo">
+      <ul class="nav-links">
+        <li><a href="#home" onmousedown="return false">Home</a></li>
+        <li><a href="#aboutMe" onmousedown="return false">About</a></li>
+        <li><a href="#skills" onmousedown="return false">Skills</a></li>
+        <li><a href="#cotactMe" onmousedown="return false">Contact</a></li>
+      </ul>
+      <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+    </nav>
+
+    <div id="home"></div>
+    
     <div id="overlay"></div> <!-- Overlay div for interaction -->
     <h1 id="h1f" data-aos="zoom-in">Welcome to my website, <span id="h134"></span></h1>
     <div id="wordAnimation"  data-aos="zoom-in-up" data-aos-delay="300"></div><div id="cursor" data-aos="zoom-in-up" data-aos-delay="300">|</div>
-    <p id="age" data-aos="fade-up" data-aos-delay="400"></p>
-    <p id="timer"></p>
+   
+    
     <h4 id="ScrollDown">scroll down 👇🏼</h4>
     <div><section></section></div>
     
@@ -28,10 +48,10 @@
           <div id="paragraph1" data-aos="zoom-in" data-aos-delay="400">
             <div id="bgJs2"></div>
             <p>
-              Hello there! I'm Pouayn,  <div id="age"></div><p> aspiring developer and
+              Hello there! I'm Pouayn <p id="age" data-aos="fade-up" data-aos-delay="400"></p> <p> aspiring developer and
               beginner lifeguard based in Canada. Coding has captured my
               curiosity since a young age, and I've already dipped my toes into
-              languages like Python, HTML, and CSS.</p>
+              languages like Python, HTML,CSS and the goat of web development javaScript.</p>
             </p>
             <p>
               When I'm not exploring the digital realm, I'm out on the Canadian
@@ -59,6 +79,7 @@
     </section>
         
     <section id="bgJ4"></section>
+
 
     <div class="containe">
     
@@ -92,12 +113,41 @@
 
       <section id="cotactMe" class="conectme">
         <div id="bgJs5"></div>
-        <h1 id="first-text">Feel free to message me</h1>
+        <h1 id="first-text" data-aos="flip-right"  data-aos-delay="700">Feel free to message me</h1>
       </div>
+
+      <div id="icons">
+
       <a target="_blank" href="https://github.com/Mrengin1">
         <i id="githubI" class="fa-brands fa-github fa-4x" style="color: #ffffff" aria-hidden="true"></i>
       </a>
+
+      <a target="_blank" href="https://www.instagram.com/mr.engine9"
+      ><i
+        class="fa-brands fa-instagram fa-4x"
+        style="color: #ffffff"
+      ></i
+    ></a>
+
+    <a target="_blank" href="https://twitter.com/Puyan1180449"
+    ><i
+      class="fa-brands fa-twitter fa-4x"
+      style="color: #ffffff"
+    ></i
+  ></a>
+
+  <a href="mailto:mr.engine1234"><i class="fa-regular fa-at fa-4x" style="color: #ffffff;">
+  </i>
+</a>
+
+
+</div>
       </section>
+
+      <footer>
+        <p id="timer"></p>
+        <h6 id="copyright">&copy; 2024 copyright reserved by : <a  onclick=" a++;" id="copyright">pouyan</a></h6>
+      </footer>
 
     <script src="particles.min.js"></script>
     <script src="script.js"></script>
