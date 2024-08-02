@@ -95,83 +95,50 @@ nav a:is(:active, :link, :visited){
   transition: all 0.3s ease;
 }
 
-@media screen and (max-width: 500px) {
-  nav{
-    top: 0;
-   
-  }
-  .nav-links {
-    position: fixed;
-    margin: 20px;
-    gap: 50px;
-    right: 0px;
-    height: 100%;
-    top: 0px;
-    background-color: var(--color-1);
-    box-shadow: -5px 0 5px rgb(0, 0, 0, 0.25);
-    display: flex;
+@media (max-width: 768px) {
+  nav .nav-links {
+    display: none;
     flex-direction: column;
-    align-items: flex-start;
-    width: 50%; 
-    transform: translateX(100%);
-    transition:  1.0s ease-out;
-  }
-
-  nav a{
-    box-sizing: border-box;
-    height: auto;
+    position: absolute;
+    top: 60px;
+    left: 0;
     width: 100%;
-    padding: 20px 30px;
-    justify-content: flex-start;
-    margin: 30px;
+    background: rgba(0, 0, 0, 0.8);
   }
 
-  .nav-links li {
+  nav .nav-links li {
+    margin: 15px 0;
+    text-align: center;
+  }
+
+  nav .burger {
+    display: flex;
+  }
+
+  nav.active .nav-links {
+    display: flex;
+  }
+
+  nav.active .burger div:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  nav.active .burger div:nth-child(2) {
     opacity: 0;
   }
 
-  .burger {
-    display: block;
-  }
-
-  .nav-active {
-    transform: translateX(0);
-  }
-
-  .nav-active li {
-    opacity: 1;
-  }
-
-
-#copyright{
-  text-align: center;
-  font-size: 15px;
-}
-
-/* Add this to animate the nav links */
-@keyframes navLinkFade {
-  from {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
+  nav.active .burger div:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
   }
 }
 
-/* Add this for burger animation */
-.burger.toggle .line1 {
-  transform: rotate(-45deg) translate(-5px, 6px);
+#home {
+  margin-top: 60px;
 }
 
-.burger.toggle .line2 {
-  opacity: 0;
-}
 
-.burger.toggle .line3 {
-  transform: rotate(45deg) translate(-5px, -6px);
-}
+.container {
+  margin: 0 20px;
 }
 
 
@@ -217,8 +184,8 @@ nav a:is(:active, :link, :visited){
     left: 0;
     bottom: 0;
     right: 0;
-    z-index: -1; /* Ensure it's above the particles but below other content */
-    pointer-events: none; /* Allow clicks to pass through */
+    z-index: -1; 
+    pointer-events: none; 
 }
 
 #cursor {
