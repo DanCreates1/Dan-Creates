@@ -591,11 +591,11 @@ function passEventToParticles(event) {
     bgJs.dispatchEvent(particlesEvent);
 }
 
-// Event listeners for passing events
+
 overlay.addEventListener('mousemove', passEventToParticles);
 overlay.addEventListener('click', passEventToParticles);
 
-// Rest of your script
+
 const birthDate = new Date('2010-05-18'); 
 const creationDate = new Date('2024-07-16'); 
 let userName = "";
@@ -658,29 +658,19 @@ setInterval(updateAgeAndTimer, 100);
 updateAgeAndTimer();
 
 
-
-
 document.addEventListener('DOMContentLoaded', () => {
+    const nav = document.querySelector('nav');
     const burger = document.querySelector('.burger');
-    const nav = document.querySelector('.nav-links');
-    const navLinks = document.querySelectorAll('.nav-links li');
+    const navLinks = document.querySelector('.nav-links');
   
     burger.addEventListener('click', () => {
-      // Toggle Nav
-      nav.classList.toggle('nav-active');
+      nav.classList.toggle('active');
+    });
   
-      // Animate Links
-      navLinks.forEach((link, index) => {
-        if (link.style.animation) {
-          link.style.animation = '';
-        } else {
-          link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
-        }
-      });
-  
-      // Burger Animation
-      burger.classList.toggle('toggle');
+    navLinks.addEventListener('click', (event) => {
+      if (event.target.tagName === 'A') {
+        nav.classList.remove('active');
+      }
     });
   });
   
-
