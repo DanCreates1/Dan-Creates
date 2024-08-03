@@ -674,29 +674,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
   
-
-
-
-
-//discord status
-async function fetchProfile() {
-  try {
-    const response = await fetch('https://strong-seasnail-44581.upstash.io/set/user_1_session/session_token_value', {
-      headers: {
-        Authorization: "Bearer YOUR_UPSTASH_REDIS_AUTH_TOKEN"
-      }
-    });
-    const data = await response.json();
-    const profileDiv = document.getElementById('discord-profile');
-    profileDiv.innerHTML = `
-      <img src="https://cdn.discordapp.com/avatars/${data.id}/${data.avatar}.png" alt="Avatar">
-      <h2>${data.username}#${data.discriminator}</h2>
-      <p>${data.bio}</p>
-      <p>Status: ${data.status}</p>
-    `;
-  } catch (error) {
-    document.getElementById('discord-profile').innerText = 'Error fetching profile';
-  }
-}
-
-fetchProfile();
