@@ -218,7 +218,7 @@ nav a:is(:active, :link, :visited){
 }
 #ScrollDown{
     text-align: center;
-    padding: 292px;
+    padding: 292px 0;
 }
 #h1AboutMe{
     text-align: center;
