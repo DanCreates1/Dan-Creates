@@ -652,7 +652,7 @@ function animateTyping(text, index, wordAnimationDiv) {
 }
 
 const wordAnimationDiv = document.getElementById('wordAnimation');
-animateTyping("I am Pouyan, a full stack developer", 0, wordAnimationDiv);
+animateTyping("I am Pouyan(AKA: Dan), a full stack developer", 0, wordAnimationDiv);
 
 setInterval(updateAgeAndTimer, 100);
 updateAgeAndTimer();
