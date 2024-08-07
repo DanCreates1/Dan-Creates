@@ -197,6 +197,7 @@ nav a:is(:active, :link, :visited){
 
 #h134 {
     text-align: center;
+    color: gold;
 }
 
 #wordAnimation {
@@ -360,21 +361,3 @@ p {
 }}
 
 
-
-
-/* discord status*/
- #discord-profile {
-      border: 1px solid #ccc;
-      padding: 16px;
-      border-radius: 8px;
-      max-width: 300px;
-      text-align: center;
-    }
-    #discord-profile img {
-      border-radius: 50%;
-      width: 100px;
-      height: 100px;
-    }
-    #discord-profile h2, #discord-profile p {
-      margin: 8px 0;
-    }
