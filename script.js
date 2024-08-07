@@ -600,10 +600,21 @@ const birthDate = new Date('2010-05-18');
 const creationDate = new Date('2024-07-16'); 
 let userName = "";
 
-while(userName === ""){
+while (userName === "") {
     userName = window.prompt("Enter your name:");
+    if (userName !== "") {
+        userName = capitalizeFirstLetter(userName);
+    }
 }
+
 document.getElementById("h134").innerHTML = userName;
+
+function capitalizeFirstLetter(string) {
+    if (string.length === 0) {
+        return string;
+    }
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
 function calculateAge() {
     const currentDate = new Date();
