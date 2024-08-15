@@ -595,93 +595,76 @@ function passEventToParticles(event) {
 overlay.addEventListener('mousemove', passEventToParticles);
 overlay.addEventListener('click', passEventToParticles);
 
+document.addEventListener("DOMContentLoaded", function () {
+    const websiteCreationDate = new Date("2024-06-01T00:00:00"); // Adjust as necessary
+    const birthDate = new Date("2010-05-18T00:00:00"); // Your birth date
 
-const birthDate = new Date('2010-05-18'); 
-const creationDate = new Date('2024-07-16'); 
-let userName = "";
+    // Typing Animation
+    let typingIndex = 0;
+    const text = "I'm Pouyan (aka Dan)!";
+    const speed = 100;
+    const cursor = document.getElementById("cursor");
+    const wordAnimation = document.getElementById("wordAnimation");
 
-while (userName === "") {
-    userName = window.prompt("Enter your name:");
-    if (userName !== "") {
-        userName = capitalizeFirstLetter(userName);
+    function typeAnimation() {
+        if (typingIndex < text.length) {
+            wordAnimation.innerHTML += text.charAt(typingIndex);
+            typingIndex++;
+            setTimeout(typeAnimation, speed);
+        } else {
+            cursor.style.display = "none"; // Hide cursor after typing finishes
+        }
     }
-}
 
-document.getElementById("h134").innerHTML = userName;
-
-function capitalizeFirstLetter(string) {
-    if (string.length === 0) {
-        return string;
+    // Ask user for their name
+    let userName = prompt("What's your name?");
+    if (userName === null || userName.trim() === "") {
+        userName = "Guest";
     }
-    return string.charAt(0).toUpperCase() + string.slice(1);
-}
+    document.getElementById("h134").textContent = userName;
 
-function calculateAge() {
-    const currentDate = new Date();
-    const ageInMilliseconds = currentDate - birthDate;
-    const ageInYears = ageInMilliseconds / (1000 * 60 * 60 * 24 * 365.25); 
-    return ageInYears; 
-}
+    // Start typing animation
+    typeAnimation();
 
-function calculateTimeElapsed() {
-    const currentDate = new Date();
-    const timeElapsed = currentDate - creationDate;
+    // Update Timers as fast as possible
+    function updateTimers() {
+        const now = new Date();
 
-    const seconds = Math.floor(timeElapsed / 1000);
-    const minutes = Math.floor(seconds / 60);
-    const hours = Math.floor(minutes / 60);
-    const days = Math.floor(hours / 24);
-    const months = Math.floor(days / 30.4375); // Average month length in days
-    const years = Math.floor(months / 12);
+        // Elapsed Time Since Website Creation
+        let elapsedTime = now - websiteCreationDate;
 
-    return { years, months: months % 12, days: days % 30.4375, hours: hours % 24, minutes: minutes % 60, seconds: seconds % 60 };
-}
+        let daysElapsed = Math.floor(elapsedTime / (1000 * 60 * 60 * 24));
+        let hoursElapsed = Math.floor((elapsedTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutesElapsed = Math.floor((elapsedTime % (1000 * 60 * 60)) / (1000 * 60));
+        let secondsElapsed = Math.floor((elapsedTime % (1000 * 60)) / 1000);
 
-function updateAgeAndTimer() {
-    const ageElement = document.getElementById('age');
-    const timerElement = document.getElementById('timer');
+        document.getElementById("timer").innerText =
+            `${daysElapsed} days, ${hoursElapsed} hours, ${minutesElapsed} minutes, ${secondsElapsed} seconds since the website was created.`;
 
-    const age = calculateAge();
-    ageElement.textContent = `I am ${age.toFixed(9)} years old`;
+        // Age Calculation
+        let ageInMilliseconds = now - birthDate;
+        let ageInYears = ageInMilliseconds / (1000 * 60 * 60 * 24 * 365.25);
 
-    const time = calculateTimeElapsed();
-    timerElement.textContent = `Time Elapsed Since Website Creation: ${time.years} years, ${Math.floor(time.months)} months, ${Math.floor(time.days)} days, ${time.hours} hours, ${time.minutes} minutes, ${time.seconds} seconds`;
-}
-
-function animateTyping(text, index, wordAnimationDiv) {
-    if (index < text.length) {
-        setTimeout(() => {
-            wordAnimationDiv.textContent += text.charAt(index);
-            animateTyping(text, index + 1, wordAnimationDiv);
-        }, Math.random() * 200 + 100); 
-    } else {
-        setInterval(() => {
-            const cursor = document.getElementById('cursor');
-            cursor.style.visibility = (cursor.style.visibility === 'visible') ? 'hidden' : 'visible';
-        }, 500); 
+        document.getElementById("age").innerText = `I'm ${ageInYears.toFixed(10)} years old.`;
     }
-}
 
-const wordAnimationDiv = document.getElementById('wordAnimation');
-animateTyping("I am Pouyan(AKA: Dan), a full stack developer", 0, wordAnimationDiv);
+    setInterval(updateTimers, 50); // Update every 50ms for fast updates
 
-setInterval(updateAgeAndTimer, 100);
-updateAgeAndTimer();
+    // Other website animations (burger menu, etc.)
+    const navSlide = () => {
+        const burger = document.querySelector('.burger');
+        const nav = document.querySelector('.nav-links');
+        const navLinks = document.querySelectorAll('.nav-links li');
 
+        burger.addEventListener('click', () => {
+            nav.classList.toggle('nav-active');
+            burger.classList.toggle('toggle');
+        });
 
-document.addEventListener('DOMContentLoaded', () => {
-    const nav = document.querySelector('nav');
-    const burger = document.querySelector('.burger');
-    const navLinks = document.querySelector('.nav-links');
-  
-    burger.addEventListener('click', () => {
-      nav.classList.toggle('active');
-    });
-  
-    navLinks.addEventListener('click', (event) => {
-      if (event.target.tagName === 'A') {
-        nav.classList.remove('active');
-      }
-    });
-  });
-  
+        navLinks.forEach((link, index) => {
+            link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.5}s`;
+        });
+    };
+
+    navSlide();
+});
