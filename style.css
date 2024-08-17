@@ -250,6 +250,7 @@ p {
 }
 
   .skill{
+    list-style-type: none;
     width: 500px;
     margin: 60px auto;
     color: #fff;
